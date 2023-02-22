@@ -1,0 +1,22 @@
+Walsh: divide et impera
+complexitate: O(log n)
+verific in ce cadran al matricii se afla elementul cautat si am 4 cazuri corespunzatoare:
+-cadran 1: apelez metoda cu aceleasi coordonate iar dimensiunea matricei este injumatatita
+-cadran 2: apelez cu x , y-mijloc si dimensiunea matricei este injumatatita
+-cadran 3: apelez cu x-mijloc , y si dimensiunea matricei este injumatatita
+-cadran 4: apelez cu x-mijloc , y-mijloc si dimensiunea matricei este injumatatita si folosesc raspunsul negat
+
+Statistics: greedy
+complexitate: O(n log n)
+-nrOfOccurences: parcurge un cuvant si intoarce de cate ori apare un caracter in acesta
+scorul unui cuvant = nr de aparitii al literei cautate - nr restul literelor
+-Pair => stocheaza o pereche formata dintr-un cuvant si scorul sau
+-pentru fiecare litera din alfabet incerc sa gasesc nr de cuvinte, iar la final intorc nr maxim de cuvinte
+
+Prinel: programare dinamica
+complexitate: O(n*k)
+-getDivisors: intoarce divizorii unui numar sortati descrescator
+-max intoarce cel mai mare element dintr-un array
+-steps: un array cu numarul minim de pasi pentru a ajunge la (nr reprezentat de pozitie, ex: pe pozitia 4 o sa fie 2, deoarece se ajunge in 2 pasi la nr 4)
+-mySteps: primeste targetul la care trebuie ajuns si intoarce un array cu nr de pasi minimi necesari pt a ajunge la fiecare element din target
+-getResult: este asemanator cu rucsac; in loc de pret vom avea numarul de puncte obtinute, in loc de greutatea maxima vom avea k, nr de pasi pusi la dispozitie, iar in loc de arrayul cu greutati, arrayul de pasi minimi (calculati cu metoda precedenta)
