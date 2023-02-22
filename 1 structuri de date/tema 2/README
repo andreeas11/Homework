@@ -1,0 +1,116 @@
+Stefan Andreea-Bianca 314CB
+punctaj checker local: 135/135; 20/20
+
+Alocare.c (a fost facut pentru a usura problemele de eliberare a memoriei)
+
+void *balloc:
+aloca memorie
+void bfree:
+eliberarea memoriei alocate
+
+list.c
+
+void LAlloc:
+aloca liste
+void LPrint:
+parcurge lista si printeaza lista cu ajutorul unei functii (care depinde de tipul elementelor din lista)
+void LFree:
+goleste lista
+void LFreeExt:
+goleste lista cu ajutorul unei functii auxiliare (specifica tipului de date din celula)
+Cell* LAddFirst:
+insereaza un element la inceput de lista
+Cell* LAddLast:
+parcurge lista si insereaza un element la sfarsit de lista + cazul listei vide
+Cell* LAddSorted:
+daca lista este goala adauga elementul pe prima pozitie, altfel parcurge lista si compara elementul
+primit ca parametru cu fiecare element din lista cu ajutorul functiei parametru, iar daca functia intoarce
+1 insereaza elementul inaintea celui din lista (cu care a fost comparat). Daca este parcursa lista si nu
+se gaseste element pentru care functia de comparare sa intoarca 1, se insereaza elementul la final
+Cell* LAddPoz:
+cauta in lista pozitia data ca parametru si reface legaturile, inserand elementul pe acea pozitie
+void* LRemoveFirst:
+elimina prima celula din lista si ii returneaza valoarea
+void* LRemoveLAst:
+parcurge lista, elimina ultima celula si ii returneaza valoarea
+void* LRemovePoz:
+parcurge lista si elimina elementul de la pozitia data ca parametru, reface legaturile si intoarce 
+valoarea celulei eliminate
+
+queue.c
+
+Queue QAlloc:
+apeleaza LAlloc
+void* QPush:
+apeleaza LAddLast
+void* QPop:
+apeleaza LRemoveFirst
+
+stack.c
+
+Stack SAlloc:
+apeleaza LAlloc
+void* SPush:
+apeleaza LAddFirst
+void*SPop:
+apeleaza LRemoveFirst
+
+tema2.c
+
+am declara o structura Flix in care se gasesc listele, cozile si stivele cerute
+Flix* FAlloc:
+aloca memorie pentru cele 4 categorii
+void FFree:
+elibereaza memoria alocaa pentru structura
+int pozitie:
+cauta pozitia unui serial din cele 3 categorii (parcurgandu-le)
+int pozitieTop:
+cauta pozitia unui serial din top10 (parcurgand lista)
+int pozitieLater:
+cauta pozitia unui serial din later (parcurgand lista)
+int pozitieWatching:
+cauta pozitia unui serial din current (parcurgand lista)
+int findHistory:
+parcurge lista history si intoarce 1 daca gaseste serialul, altfel 0
+int findWatching:
+parcurge lista current si intoarce 1 daca gaseste serialul, altfel 0
+Series* findSeries:
+parcurge listele later, current, top10 si cele 3 categorii si returneaza serialul al carui nume corespunde
+cu cel dat ca parametru
+int Compare:
+compara 2 seriale in functie de rating, iar daca acesta este egal, in functie de nume
+void printSerial:
+printeaza numele si ratingul serialului primit ca parametru
+void addSeason:
+pentru cate episoade sunt intr-un sezon, adauga in coada durata fiecaruia si calculeaza timpul total al
+serialului
+Series* addSeries:
+pentru cate sezoane sunt intr-un serial, apeleaza functia de addSeason
+void add:
+se apeleaza functia de addSeries si se adauga serialul in ordine cu ajutorul LAddSorted
+void add_sez:
+se cauta serialul la care trebuie adaugat sezonul cu ajutorul findSeries si se adauga un nou sezon cu
+ajutorul functiei de addSeason
+void add_top:
+functia este asemanatoare cu cea de add, insa pentru a adauga elemente se foloseste LAddPoz pentru ca
+acestea sa fie inserate pe pozitia ceruta, iar lista se limiteaza la 10 seriale
+void later:
+cauta serialul in cele 4 categorii, il elimina si il insereaza in coada later 
+void watch:
+cauta serialul cu ajutorul findSeries, daca acesta a fost deja vizionat se opreste, daca acesta nu se afla
+in stiva current este eliminata de unde se afla si adaugata la current; daca aceasta se afla deja in
+current se scoate (pastrand elementele scoase inainte intr-o stiva auxiliara, iar apoi se adauga la loc),
+si este inserat la final. Din timpul total de vizionare se scade timpul vizionat, iar daca acesta este
+vizionat compet (timpul totat zero sau negativ), se elimina din stiva current
+void show:
+verifica ce lista/coada/stiva trebuie afisata si o afiseaza cu ajutorul LPrint
+Queue splitline:
+desparte o linie cu ajutorul strtok
+void executeCommandLine:
+cauta ce comanda trebuie executata si apeleaza functia corespunzatoare
+void Lines:
+citeste din fisierul primit ca inputapeleaza test
+
+int main:
+verifica numarul de argumente la rularea programului, pastreaza fisierele pentru input si output, aloca
+memorie pentru flix si apeleaza functia Lines 

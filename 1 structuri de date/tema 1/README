@@ -1,0 +1,68 @@
+Stefan Andreea-Bianca 314CB
+
+List.c
+
+void LForEachExtr:
+parcurge o lista si aplica functia (care are 2 parametrii) data ca parametru
+void LForEach:
+analog, insa functia primita are doar un parametru
+voidLFree:
+elibereaza memoria pentru lista
+void *LFind:
+daca lista nu e vida, verifica pentru fiecare celula daca indeplineste conditia impusa de functia data ca
+parametru (si daca da intoarce informatia aflata in celula)
+void LInsert:
+se aloca memorie celulei + verificare; daca lista este vida, se va insera prima celula (pointerii catre
+precedent si urmator arata spre ea) daca lista este nevida, se compara elementele pentru a vedea unde
+trebuie inserat elementul + inserarea propriu zisa, refacerea legaturilor 
+int LRemove:
+parcurge lista si cauta celula care are elementul dat ca parametru; daca lista este formata doar din
+celula care trebuie eliminata, devine nula, altfel se refac legaturile
+
+Hash.c
+
+Pair* PInit:
+se initializeaza perechea key, value
+int PairPickByKey:
+compara cheia dintr-o pereche cu o alta cheie
+int PairCompare:
+compara cheile a doua perechi
+unsigned long StrHash:
+calculeaza suma fiecarei chei
+Hashtable* HInit:
+initializeaza tabela hash + testare
+void HFree:
+elibereaza tabela hash
+int HFind:
+cauta o cheie in tabela hash: calculeaza indexul cheii si o cauta in bucketul respectiv (cu ajutorul
+functiei LFind); returneaza 1 daca e gasita, respectiv 0 daca nu
+int HPut:
+calculeaza indexul cheii, initializeaza perechea si o insereaza in lista bucketului corespunzator
+void *HGet:
+calculeaza indexul cheii si o cauta in bucketul respectiv (cu ajutorul functiei LFind); daca este gasita
+se returneaza valoarea corespunzatoare cheii, iar daca nu, null
+void PairPrint:
+printeaza valoarea din interiorul unei perechi
+void HPrint_Bucket:
+daca bucketul este gol printeaza VIDA, altfel printeaza fiecare element din acel bucket cu ajutorul
+functiei LForEachExt
+void HPrint:
+parcurge fiecare index al tabelei hash si printeaza bucketurile nevide cu ajutorul functiei anterioare
+void HRemove:
+calculeaza indexul cheii care trebuie eliminata, o cauta cu LFind si o elimina cu ajutorul LRemove
+
+tema1.c
+
+void executaOperatii:
+se initializeaza tabela hash si se citeste dintr-un fisier ce trebuie executat; comenzile, cheile si
+valorile sunt despartite cu strtok. Pentru fiecare tip de comanda exista un if:
+put: se apeleaza functia HPut
+get: se verifica daca exista elementul respectiv, daca da, se printeaza valoarea, altfel null
+remove: se apeleaza HRemove
+find: se apeleaza HFind; daca a gasit elementul printeaza True, altfel False
+print: se apeleaza HPrint
+print_bucket: verifica daca exista bucketul cerut si daca da, se apeleaza HPrint_Bucket
+la final se elibereaza memoria
+main:
+se verifica ca la apelare sa fie primiti 4 parametri; si retine numarul de bucketuri ale tabelei hash,
+cat si fisierele pentru input si output; apeleaza functia precedenta
