@@ -1,0 +1,31 @@
+Stefan Andreea-Bianca 314CB
+
+File* FAlloc(char* name)- aloca un elem de tip File
+void FFree(File* file) - elibereaza un element de tip File
+Dir* DAlloc(char* name) - aloca un elem de tip Dir
+void DFree(Dir* dir)- elibereaza un element de tip Dir
+
+void touch (Dir* parent, char* name)- parcurge fisierele si cauta daca nu exista deja unul cu acelasi nume,
+daca nu e aloca un nou File si il insereaza la finalul listei de fisiere
+void mkdir (Dir* parent, char* name)- parcurge directoarele si cauta daca nu exista deja unul cu acelasi
+nume, daca nu e aloca un nou Dir si il insereaza la finalul listei de directoare
+void ls (Dir* parent)- parcurge lista de directoare si le afiseaza numele, iar apoi asemanator si la cea
+de fisiere
+void rm (Dir* parent, char* name)- parcurge fisierele si cauta numele dat ca parametru iar apoi elibereaza
+acel fisier
+void freeDir(Dir* dir)- parcurge directorul si ii elibereaza directoarele (recursiv) si fisierele
+void rmdir(Dir* parent, char* name)- parcurge directoarele si cauta numele dat ca parametru iar apoi
+apeleaza freeDir pentru a il sterge
+void cd(Dir** target, char *name)- cauta directorul dupa nume si seteaza noul home, daca name e ".." se
+intoarce in directorul anterior
+char* getPath(Dir* target, char* buf)- ajunge recursiv la directorul initial si returneaza numele
+directoarelor prin care a trecut
+char *pwd (Dir* target)- apeleaza functia anterioara si printeaza calea
+void stop (Dir* target)- elibereaza memoria
+void tree (Dir* target, int level)- parcurge recursiv toate directorele si fisierele si le afiseaza
+lasand spatiul in functie de nivelul la care se afla
+void mv(Dir* parent, char *oldname, char *newname)- parcurge fisierele si cauta oldname si newname dat ca
+parametru iar apoi face acelasi lucru si pentru directoare; daca gaseste newname sau nu gaseste oldname
+afiseaza mesajul corespunzator. Parcurge fisierele si cauta oldname, elibereaza acel fisier, parcurge
+lista pana la  capat si creeaza unul nou cu newname. Parcurge directoarele si cauta oldname, iar apoi
+adauga directorul cu nume schimbat la finalul listei (caz separat daca e primul sau singurul director). 
