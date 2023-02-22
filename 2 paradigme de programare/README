@@ -1,0 +1,76 @@
+Taskset 1
+
+Task 1
+sumaLista - face media unui rand (fara primul element care este numele)
+sumaListaDeLista - aplica functia anterioara unui tabel (fara primul rand)
+compute_average_steps - pune antetul tabelului si il concateneaza la apelul functiei anterioare
+
+Task 2
+get_passed_people_num - incrementam (cu foldr) acc daca a atins goalul de pasi folosindu-ne de functia anterioara
+get_passed_people_percentage - apelol functiei anterioare impartit la numarul de persoane
+get_steps_avg - folosim compute_average_steps pentru a calcula suma tuturor pasilor facuti si impartim la numarul de persoane
+
+Task 3
+myavg - media unei liste (suma tuturor elementelor impartita la numarul elementelor)
+get_avg_steps_per_h - pune antetul tabelului si il concateneaza la apelul functiei anterioare (folosind transpusa matricei)
+
+Task 4
+getNrOfActive1, getNrOfActive2, getNrOfActive3 - numarul de persoane dintr-un anumit range
+get_activ_summary - pune antetele tabelului si il concateneaza la apelele functilor anterioare pentru fiecare coloana corespunzatoare
+
+Task 5
+getTable - intoarce primele 2 coloane ale unui tabel (fara antet)
+myCompare - compara 2 randuri dupa numarul de pasi; in caz ca sunt egali, dupa nume si intoarce -1 daca primul e mai mic, altfel 1
+myinsert - insereaza un rand intr-un tabel deja arenjat (crescator) folosind functia anterioara
+insertSort - se foloseste de functia anterioara pentru a sorta un tabel
+get_ranking - pune antetul tabelului si il concateneaza la apelul functiei anterioare (pe tabelul de la getTable)
+
+Task 6
+my2sum - media ultimelor 4h
+my1sum - media primelor 4h (folosind mysum si my2sum)
+mydif - diferenta celor 2 medii
+get2Table - construieste un tabel cu cele 4 coloane dorite
+get_steps_diff_table - pune antetul tabelului si il concateneaza la apelul functiei insertSort (pe tabelul de la get2Table) pentru a ordona tabelul
+
+Task 7
+vmap - aplica functia f pe fiecare element al tabelului
+
+Task 8
+rmap - pune antetul tabelului (s) si il concateneaza la tabelul rezultat din aplicarea functiei f pe feiecare linie a tabelului
+get_sleep_total - numele unei persoane concatenat la numarul total de minute dormite de aceasta
+
+
+Taskset 2
+
+Task 1
+getColumn - cauta pe ce pozitie se cauta elementul cautat si intoarce nr acesteia
+myCompare2, myinsert2, insertSort2 - asemanatoare cu cele folosite la 1.5, dar tin cont si de numele coloanei in functie de care se sorteaza
+tsort - adauga headerul si apeleaza insertSort2 
+
+Task 2
+vunion - daca headerele cele 2 tabele sunt egale adauga tabelul 2 la primul, altfel il intoarce doar pe primul
+
+Task 3
+constructRow - adauga "" la o linie
+construct - adauga linii la un tabel
+hunion - in functie de marimea tabelelor (se construieste pe cel mai mic pt a il aduce la marimea celui mare) se foloseste zipWith pt a uni elementele celor 2 tabele
+
+Task 4
+
+Task5
+forEach - aplica o functie pe o linie cu fiecare linie din tabel
+forEach2 - aplica pentru fiecare linie din primul tabel forEach (cu al doilea tabel)
+cartesian - adauga header si apeleaza functia anterioara
+
+Task 6
+getHeaders - daca primul element al coloanei este in lista (se lucreaza cu transpusa matricei), atunci se adauga coloana aceea altfel se trece mai departe
+projection - apeleaza functia anterioara si intoarce transpusa matricei
+
+Task 7
+verify - daca conditia este indeplinita de elementul de pe pozitia cautata (in functie de coloana) se returneaza linia respectiva si se apeleaza recursiv, altfel doar apeleaza recursiv
+filterTable - adauga headerul si apeleaza verify
+
+
+Taskset 3
+Task 1
+am instantat exact cum se cere in cerinta
