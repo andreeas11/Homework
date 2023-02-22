@@ -1,0 +1,30 @@
+Stefan Andreea-Bianca 334CB
+
+structuri folosite:
+struct cell => pentru liste
+struct thread_mapper => pentru mapperi
+struct thread_reducer => pentru reducers
+struct arguments => argument ce va fi dat ca parametru pentru functiile threadurilor
+
+functii liste:
+List LAlloc(long long int elem) => creaza o lista cu elem in celula
+List LAdd(List* list, long long int elem) => adauga elem in lista
+List LSortedMerge (List l1, List l2) => primeste 2 liste si le uneste element cu element in ordine crescatoare
+void LDivide(List src, List* firstHalf, List* secondHalf) => imparte lista in jumatati
+void LSort (List* head) => mergesort => injumatateste, ordoneaza (si scoate duplicatele), lipeste
+List LConcatenate(List list1, List list2) => concateneaza 2 liste
+
+functii ajutatoare:
+int binarySearch(long long int v[], int st, int end, long long int val) => cautare binara
+int checkIfPow(long long int (*powMat)[2000], List l[10], long long int val, int rows, int columns) => verifica pt fiecare valoare din lista daca e putere perfecta cautandu l 
+	pe fiecare linie a matricii de puteri; daca e putere perfecta il adauga la lista aferenta puterii
+
+functie mapper:
+void* readFile(void* arg) => citeste din fileul principal numele fileurilor si le parcurge punand nr intr-un vector de liste aferent mapperului; verifica fiecare nr daca e 
+putere perfecta si il pune in lista aferenta mapperului si puterii
+
+functie reducer:
+void *reduceLists(void *arg) => concateneaza listele astfel incat sa fie una pt fiecare reducer (putere); sorteaza si elimina duplicatele, iar apoi pune nr elem infileul de
+output corespunzator
+
+
