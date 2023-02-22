@@ -1,0 +1,53 @@
+Stefan Andreea-Bianca
+314CB
+andreea.stefan1110@stud.acs.upb.ro
+
+Functiile folosite pentru rezolvarea taskurilor:
+
+sprint_matrix: printeaza matricea sub forma de string
+PrintMarix: afiseaza matricea, apeland sprint_matrix
+fromStringToEnum: aflam rolul jucatorului, comparandu-l cu cele 4 posibilitati si il intoarcem ca enum
+
+task1:
+alocam si creeam matricea, iar apoi o mutam, mai intai se rotesc cele 4 colturi (de la 11), 
+apoi urmatorul termen din dreapta (12) cu corespondenele sale de pe restul laturilor, etc.
+transformam matricea in sir si ne ajutam de PrintMarix. Apoi eliberam spatiul alocat.
+
+task2:
+parcurgem sirul cu un pointer, daca nu indica spre '_' sau nu s-a terminat sirul, numarul este
+adaugat la suma, care va fi returnata la final
+
+task3:
+verificam daca vectorul are un nr par de elemente, iar daca da atunci inversam fiecare 2 membri
+cu un for care merge din 2 in 2, iar daca este impar, inversam vectorul, luandu-l de la final la inceput
+
+task4:
+alocam cu malloc spatiu
+
+task5:
+se citesc datele cerute despre jucator, aici setam si indexul locatiei la 0, rolul si abilitatea jucatorului
+pentru rol folosim functia fromStringToEnum.
+
+se citesc datele cerute despre joc si se apeleaza functia de mai sus pentru cele despre jucatori
+
+task6:
+afisam in fisier ce ne este cerut legat de jucator, pentru rol vom folosi functia fromEnumtoString
+
+afisam in fisier datele legate de joc si apelam functia de mai sus pentru fiecare jucator
+
+task7:
+setam killDistance la nr maxim posibil si killIndex la -1
+daca e in viata, se calculeaza distanta intre impostor si crewmate si se compara cu cea mai mica
+distanta , mai mica ca killRage, gasita pana in acel punct. Daca distanta indeplineste conditiile,
+sunt memorate indexul si distanta. La final daca este gasita distanta, crewmateul respectiv este omorat
+si se afiseaza mesajul dorit, daca nu este gasit vreun crewmate in perimetrul dorit nu este omorat nimeni
+si se afiseaza mesaajul aferent
+
+task8:
+pentru fiecare jucator verificam daca este mort, daca da afisam mesajul aferent, altfel,se muta la
+urmatoarea locatie (si se afiseaza), iar apoi este afisat outputul care depinde de abilitatea
+crewmateului. Pentru impostor calculam locatia urmatoare, o afisam, iar apoipentru abilitatea
+lui apelam functia de la task7 
+
+task9:
+eliberam spatiul alocat
