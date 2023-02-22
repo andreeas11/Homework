@@ -1,0 +1,64 @@
+Stefan Andreea-Bianca 314CB
+
+(nu am schimbat scheletul temei)
+
+-in realizarea temei m-am ghidat dupa comentariile din schelet si pdf-ul aferent temei
+
+interpolarea nearest-neighbour
+
+nn_2x2
+- in interiorul for-urilor rotunjesc coordonatele punctelor intermediare
+nn_2x2_RGB
+- apeleaza nn_2x2 pentru fiecare din cele 3 canale (RGB)
+nn_resize
+- calculez factorii de scalare; matricea de transformare si inversa ei
+- in interiorul for-urilor aplic transformarea inversa (asupra x si y); trec sistemul de coordonate cu o
+unitate in plus; rotunjesc coordonatele si calculez valoarea pixelului
+nn_resize_RGB
+- apeleaza nn_resize pentru fiecare din cele 3 canale
+
+interpolarea biliniara
+
+bilinear_coef
+- calculeaza matricea A si vectorul b (din pdf) iar cu ajutorul acestora se calculeaza coeficientii a
+surrounding_points
+- calculez valorile x1, y1, x2, y2 (cu fct floor), iar daca y sau x se afla pe ultima linie/coloana, y1
+devine m-1, y2 m, analog pt x1 si x2
+bilinear_2x2
+- se foloseste bilinear_coef pentru a calcula coeficientii, iar in interiorul for-urilor calculez 
+valoarea pixelului (ca in pdf)
+bilinear_2x2_RGB
+- apeleaza bilinear_2x2pentru fiecare din cele 3 canale
+bilinear_resize
+- calculez factorii de scalare; matricea de transformare si inversa ei
+- in interiorul for-urilor aplic transformarea inversa (asupra x si y); trec sistemul de coordonate cu o
+unitate in plus; aplic surrounding_points si bilinear_coef, iar apoi calculez valoarea pixelului
+bilinear_resize_RGB
+- apeleaza bilinear_resize pentru fiecare din cele 3 canale
+bilinear_rotate
+- calculez sinusul si cosinusul unghiului de rotire, matricea de transformare si inversa ei
+- in interiorul for-urilor aplic transformarea inversa (asupra x si y); trec sistemul de coordonate cu o
+unitate in plus; si verific daca x_p si y_p se afla in afara intervalului 1-n respectiv 1-m, iar daca da,
+pixelul aferent devine 0; aplic surrounding_points si bilinear_coef, iar apoi calculez valoarea pixelului
+bilinear_rotate_RGB
+- apeleaza bilinear_rotate pentru fiecare din cele 3 canale
+
+interpolarea bicubica
+
+fx, fy, fxy
+- se aplica formulele de aproximare a derivatelor din pdf
+surrounding_points
+- calculez valorile x1, y1, x2, y2 (cu fct floor), iar daca y sau x se afla pe ultima linie/coloana, y1
+devine m-1, y2 m, analog pt x1 si x2
+bicubic_coef
+- calculeaza cele 3 matrici intermediare, le converteste, iar apoi calculeaza matricea finala a coeficientilor
+precalc_d
+- converteste matricile la double; pentru fiecare din cele 3 vor fi  parcurse cu 2 for-uri si cu ajutorul
+functiei aferente (fx/fy/fxy)
+bicubic_resize
+- calculez factorii de scalare; matricea de transformare si inversa ei; paplic precalc_d
+- in interiorul for-urilor aplic transformarea inversa (asupra x si y); trec sistemul de coordonate cu o
+unitate in plus; aplic surrounding_points si bicubic_coef; scad din x_p si y_p x1 respectiv y1, iar apoi
+calculez valoarea pixelului
+bicubic_resize_RGB
+apeleaza bicubic_resize pentru fiecare din cele 3 canale
